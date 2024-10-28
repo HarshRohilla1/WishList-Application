@@ -1,7 +1,9 @@
 package com.example.mywhislistapplication
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
@@ -13,7 +15,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -27,7 +31,7 @@ fun AppBarView(
         if(!title.contains("WishList")) {
             IconButton(onClick = { onBackNavClicked() })
             {
-                Icon(
+                Icon(modifier = Modifier.padding( top = 15.dp),
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = null,
                     tint = Color.White
@@ -48,11 +52,13 @@ fun AppBarView(
            color = colorResource(id = R.color.white),
            modifier = Modifier
                .padding( top = 15.dp)
-               .heightIn(max = 24.dp))
+               .heightIn(max = 24.dp),
+           fontWeight = FontWeight.Bold,
+           fontSize = 22.sp)
    },
-       elevation = 3.dp,
-       backgroundColor = colorResource(id = R.color.app_bar_color),
-       navigationIcon = {navigationIcon}
+       elevation = 10.dp,
+       backgroundColor = colorResource(id = R.color.background),
+       navigationIcon = navigationIcon
    )
 
 }
